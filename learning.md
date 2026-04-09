@@ -15,3 +15,5 @@
 
 - -> JavaScript (React) is used tyo udpate the page(DOM)
 - -> The page is never reloaded(entire app is juts one page so without any hard reloads)
+
+> to make SPA we cant use <a> as it refreshes the page we have to use <Link to=""></Link>
