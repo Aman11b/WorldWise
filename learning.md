@@ -16,4 +16,21 @@
 - -> JavaScript (React) is used tyo udpate the page(DOM)
 - -> The page is never reloaded(entire app is juts one page so without any hard reloads)
 
-> to make SPA we cant use <a> as it refreshes the page we have to use <Link to=""></Link>
+> to make SPA we cant use <a> as it refreshes the page we have to use <Link to=""></Link> to add active features use <NavLink>
+
+## Styling option in react
+
+1. inline CSS using using style prop with local scope
+2. css or Scss file using className prop with entire app as scope
+3. css modules using className with component as scope
+4. CSS-in-JS using creating new component scopped component and based in JS
+5. tailwind using className prop scoped JSX element
+6. using UI library MUI,Chakra UI mantine
+
+> to use global in module.css
+
+```
+    :global(.test) {
+    background-color: red;
+    }
+```
