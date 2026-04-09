@@ -5,8 +5,8 @@ import PageNav from "../components/PageNav";
 export default function Product() {
   return (
     <main className={styles.product}>
+      <PageNav />
       <section>
-        <PageNav />
         <div>
           <h2>
             Simple pricing.
