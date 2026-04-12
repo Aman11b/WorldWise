@@ -34,3 +34,18 @@
     background-color: red;
     }
 ```
+
+## THE URL FOR STATE MANAGEMENT
+
+- The URL is an exceleent place to store UI state and an alternative to useState in some situaltion .Example: open/close panels,currently selected list item,list sorting order,applied list filter
+
+### reasons
+
+1. Easy way to store state in a global place,accessible to all component in the app
+2. good way to pass date from one page into the next page
+3. make it possible to bookmark and share the page with the exact UI state it had at the time
+
+> www.example.com[/app/cities](path)/[lisbon](param)?[lat=38.728&lng=-9.141](query string)
+> path -> corresponds to component currenlty displayed
+> param(parameter) -> pass data to next page
+> query string -> useful to store some global state that should be accessible everywhere
