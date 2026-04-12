@@ -1,10 +1,21 @@
-import style from "./Map.module.css"
-function Map(){
-    return(
-        <div className={style.mapContainer}>
-            Map
-        </div>
-    )
+import { useSearchParams } from "react-router-dom";
+import style from "./Map.module.css";
+function Map() {
+  const [searchParam, setSearchParam] = useSearchParams();
+  const lat = searchParam.get("lat");
+  const lng = searchParam.get("lng");
+
+  return (
+    <div className={style.mapContainer}>
+      <h1>Map</h1>
+      <h1>
+        Position:{lat}, {lng}
+      </h1>
+      <button onClick={() => setSearchParam({ lat: 23, lng: 50 })}>
+        Change Position
+      </button>
+    </div>
+  );
 }
 
 export default Map;
