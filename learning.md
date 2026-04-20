@@ -49,3 +49,8 @@
 > path -> corresponds to component currenlty displayed
 > param(parameter) -> pass data to next page
 > query string -> useful to store some global state that should be accessible everywhere
+
+## Programmatic navigation
+
+- to move to new URL without the user having to click on any link
+- use case: right after submitting form
