@@ -35,18 +35,6 @@
         "lng": 13.376933665713324
       },
       "id": "98443197"
-    },
-    {
-      "cityName": "Sigdal",
-      "country": "Norway",
-      "emoji": "🇳🇴",
-      "date": "2026-05-09T16:34:38.504Z",
-      "notes": "",
-      "position": {
-        "lat": "59.97389195499747",
-        "lng": "9.519108315762331"
-      },
-      "id": "bwCTvPqeKHw"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
