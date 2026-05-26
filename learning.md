@@ -134,3 +134,101 @@
 | ---------------- | --------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | **UI State**     | `useState`, `useReducer`, `useRef`                                    | Context API + `useState` / `useReducer`, Redux, Zustand, Recoil, React Router                |
 | **Remote State** | `fetch` + `useEffect` + `useState` / `useReducer` _(small apps only)_ | React Query, SWR, RTK Query _(preferred)_ + Redux/Zustand/Recoil (if needed for global sync) |
+
+## PERFORMANCE OPTIMIZATION TOOLS
+
+-> Prevemt wasted renders
+
+- memo (component)
+- useMomo(object, function)
+- useCallback
+- Passing elements as childrene or regular prop
+
+-> Improve App Speed/Responsiveness
+
+- useMemo
+- useCllback
+- useTransition
+
+-> Reduce Bundle Size
+
+- using fewer 3rd party packages
+- code splitting and lazy loading
+
+## WHEN DOES A COMPONENTS INTENCE RE-RENDER?
+
+-> A component instance only re-renders in 3 different situation
+
+- state change
+- content change
+- parent component re-rendering
+
+> prop change doesnt case re-render as it only happen when parent re-render,henc parent re-render creates the false impression that changing props re-renders a component which is false
+
+### Remember: A render does not mean that the DOM actually gets updated,it just means the component function gets called,But this can be an expensive operation
+
+### WASTED RENDER
+
+-> a render that didn't prodced any change in the DOM
+-> only a problem when they happen too frequently or when the component is very slow
+
+## What is MEMOIZATION
+
+> Memoization: Optimizing technique that executes a pure function once,and save the result in memory.If we try to execute the function again with same argument as before,the previosly saved result will be returned,without executing the function again
+
+-> Memorise components with memo
+-> Memorise objects with useMemo
+-> Memorise function with useCallback
+
+-> Prevent wasteed renders
+-> improve app speed/responsiveness
+
+### THE MEMO FUNCTION
+
+-> Used to create a component that will not re-render when its parent re-render as long as the props stays the same between renders
+-> Only affects props! A memorized component will still re-render when its own state changes or when a context that it's subscribed to changes
+-> Only makes sense when the component is heavy(slow rendering),re-render often and does so with the same props
+
+### AN ISSUE WITH MEMO
+
+> In react,everything is re-rendered on every render(including objects and function)
+
+> In JavaScript, Two objects or function that look the same ,are actually different({}!={}) because they are compared by reference, not by their content
+
+- therefore
+
+-> If object or function are passed as props ,the child component will always see them as new props on each re-render
+-> If props are different between re-renders,memo will not work
+
+- Solution
+
+-> We need to memorize objects and function ,to make them stable (preserve) between re-render(memorized{}== memoized {})
+
+### useMemo & useCallback
+
+-> Used to memoized value(useMemo) and function (useCallback) between renders
+
+-> Values passed into useMemo and useCallback will be stored in memory ("cache") and returned in subsequent re-render as long as dependencies ("input") stayes the same
+
+-> useMemo and useCallback have a dependency array(like useEffect): whenever one dependecy changes the value will be re-created
+
+### THREE BIG USE CASES
+
+> useMemo and useCallback is only used in only these 3 cases
+
+- Memoizing props to prevent wasted render(together with memo)
+- Memoizing value to avoid expensice re-calcualtions on every render
+- Memoizing values that are used in dependency array of another hook
+
+> state setter functions are automaticlly memoized,you can exclude them from dependecy array
+
+### Optimizing Context Re-renders
+
+- Your need to optimise the Context when these 3 things are true at the same time
+
+-> State in the Context needs to change all the time
+-> Contenxt has many consumers
+-> The app is slow and laggy
+
+1. pass children
+2. memoize direct decendent of the context

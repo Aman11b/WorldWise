@@ -22,7 +22,8 @@ function City() {
     function () {
       getCity(id);
     },
-    [id],
+    [id, getCity],
+    // needs to be stabalised
   );
   if (isLoading) return <Spinner />;
 
