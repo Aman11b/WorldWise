@@ -35,6 +35,18 @@
         "lng": 13.376933665713324
       },
       "id": "98443197"
+    },
+    {
+      "cityName": "Avis",
+      "country": "Portugal",
+      "emoji": "🇵🇹",
+      "date": "2026-05-26T09:55:16.640Z",
+      "notes": "test",
+      "position": {
+        "lat": "39.15973835943282",
+        "lng": "-7.921126702837876"
+      },
+      "id": "9-e8qeKTHTg"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
