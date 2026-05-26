@@ -232,3 +232,10 @@
 
 1. pass children
 2. memoize direct decendent of the context
+
+## THE BUNDLE AND CODE SPLITTING
+
+- Bundle: Javascript file containing the entire application code.Downloding the bundle will load the entire app at once,turning it into a SPA
+  > Produced by a tool like webpack(inside create-react-app) or vite
+- Bundle size : Amount of JavaScript user have to downlode to start using the app.One of the most important thing to be optimized,so that the bundle takes less time to downlode
+- Code splitting: Splitting bundle into multiple parts that can be downloded over time("lazy loading")
